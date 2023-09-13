@@ -36,23 +36,6 @@ RUN chmod +x /start.sh
 CMD ["/start.sh"]
 
 
-# Run this dockerfile:
-
-# ssh-keygen -t rsa -b 4096 -f ./id_rsa
-# ou .. 
-# yes | ssh-keygen -t rsa -b 4096 -q -f ./id_rsa -N ""
-
-# docker build -t ansible_image .
-# docker run -d -p 2222:22 -v $(pwd)/id_rsa.pub:/root/.ssh/authorized_keys ansible_image
-# ssh -i ./id_rsa root@localhost -p 2222
-
-## File Start.sh no raiz do docer:
-
-#!/bin/bash
-# chmod 600 /root/.ssh/authorized_keys
-# chown root.root /root/.ssh/authorized_keys
-# /usr/sbin/sshd -D
-
 
 
 
