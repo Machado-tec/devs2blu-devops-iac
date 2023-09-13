@@ -1,0 +1,17 @@
+---
+- hosts: docker_containers
+  become: yes
+  tasks:
+  - name: Atualizar cache apt
+    apt:
+      update_cache: yes
+
+  - name: Instalar net-tools
+    apt:
+      name: net-tools
+      state: present
+
+  - name: Instalar mcedit
+    apt:
+      name: mcedit
+      state: present
