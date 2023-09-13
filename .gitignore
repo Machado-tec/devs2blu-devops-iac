@@ -1,0 +1,7 @@
+id_rsa
+id_rsa.pub
+.vscode
+.terraform/
+.terraform*
+hosts.ini
+
