@@ -1,5 +1,10 @@
 
 # Run this dockerfile:
+# Estes 4 arquivos devem estar no diretorio do Dockerfile
+    # Dockerfile
+    # id_rsa 
+    # id_rsa.pub
+    # start.sh 
 
 # ssh-keygen -t rsa -b 4096 -f ./id_rsa
 # ou .. 
@@ -23,3 +28,4 @@ ssh "-o StrictHostKeyChecking=no" -i ./id_rsa root@localhost -p 2222
 # chmod 600 /root/.ssh/authorized_keys
 # chown root.root /root/.ssh/authorized_keys
 # /usr/sbin/sshd -D
+
