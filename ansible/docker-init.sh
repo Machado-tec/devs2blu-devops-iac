@@ -12,9 +12,10 @@ docker build -t ansible_image .
 
 # 3)
 docker run -d -p 2222:22 -v $(pwd)/id_rsa.pub:/root/.ssh/authorized_keys ansible_image
+docker run -it -p 2222:22 -v $(pwd)/id_rsa.pub:/root/.ssh/authorized_keys ansible_image
 
 # 4) 
-ssh -o StrictHostKeyChecking=no -o -i ./id_rsa root@localhost -p 2222
+ssh "-o StrictHostKeyChecking=no" -i ./id_rsa root@localhost -p 2222
 
 ## File Start.sh no raiz do docer:
 
