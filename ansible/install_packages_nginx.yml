@@ -1,0 +1,36 @@
+---
+- hosts: docker_containers
+  become: yes
+  tasks:
+  - name: Remover Apache2
+    apt:
+      name: apache2
+      state: absent
+
+  - name: Atualizar cache apt (necessário para instalar novos pacotes)
+    apt:
+      update_cache: yes
+
+  - name: Instalar Nginx
+    apt:
+      name: nginx
+      state: present
+
+  - name: Copiar nginx.conf personalizado para a VM
+    copy:
+      src: /caminho/local/para/nginx.conf
+      dest: /etc/nginx/nginx.conf
+      owner: root
+      group: root
+      mode: '0644'
+
+  - name: Reiniciar Nginx para aplicar as novas configurações
+    systemd:
+      name: nginx
+      state: restarted
+
+  - name: Iniciar e habilitar o serviço Nginx
+    systemd:
+      name: nginx
+      state: started
+      enabled: yes
