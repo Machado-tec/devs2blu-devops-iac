@@ -12,9 +12,7 @@ RUN apt-get update && \
     apt-get install -y software-properties-common openssh-server && \
     add-apt-repository --yes ppa:ansible/ansible && \
     apt-get update && \
-    apt-get install -y ansible \
-    apt-get install iputils-ping
-
+    apt-get install -y ansible
 
 # Configuração do SSH
 RUN echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config && \
